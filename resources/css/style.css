@@ -1,0 +1,551 @@
+/****************************************************/
+/*  BASIC SETUP */
+/****************************************************/
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #fff;
+    color:#555;
+    font-family: 'Lato', 'Arial', 'sans-serif';
+    font-weight:300;
+    font-size: 20px;
+/*    check*/
+    text-rendering: optimizeLegibility;
+}
+
+/*this is used to clear the div right after float is applied*/
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/****************************************************/
+/*  RESUSABLE COMPONENTS  */
+/****************************************************/
+
+.row{
+    max-width:1140px;
+/*    margin: 0 auto 0 auto;*/
+    margin: 0 auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+a:link,
+a:visited{
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px solid #e67e22;    
+    border-bottom: 1px solid #e67e22;    
+}
+
+a:hover,
+a:active{
+    color:#555;
+    border-bottom: 1px solid transparent; 
+    transition: border-bottom 0.5s,color 0.5s;
+}
+
+
+/****************************************************/
+/*  HEADER */
+/****************************************************/
+
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.72),rgba(0, 0, 0, 0.74)), url(../img/hero.jpg);
+/*    to display the entire image*/
+    background-size: cover;
+    background-position: center;
+/*    100 % of view height*/
+    height:100vh;
+}
+
+h1,h2,h3{
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing:1px;
+}
+
+h1{
+    /*    needs to be overwritten because of normalize.css issue*/
+    margin:0;
+    word-spacing: 4px;
+    margin-bottom:20px;
+    color:white;
+/*    240% of the html base size of font size -  makes it resposnisve*/
+    font-size: 240%;
+}
+
+h2{
+    font-size: 180%;
+    word-spacing:2px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2:after{
+    display:block;
+    height:2px;
+    background-color: #e67e22;
+    content:" ";
+    width:100px;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+h3{
+    font-size:110%;
+    margin-bottom: 15px;
+}
+
+.hero-text-box{
+    position: absolute;
+    width:1140px;
+    top:50%;
+    left:50%;
+/*    translate the element half of its width and of its height, up and to the left.*/
+    transform:translate(-50%,-50%);
+}
+
+.logo {
+    width:auto;
+    height:100px;
+    float:left;
+    margin-top:20px;
+}
+
+.main-nav {
+    margin-top:55px;
+    list-style: none;
+    float: right;
+}
+
+.main-nav li{
+/*    they were initially block elems, so each li takes up entire width so making it inline-block
+    to make them side by side*/
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+/*have to mention both how the link should look before and after visiting it - for some browsers*/
+.main-nav li a:link,
+.main-nav li a:visited{
+    font-size: 90%;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    padding-bottom: 5px
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #e67e22;
+}
+
+/****************************************************/
+/*  PARAGRAPHS  */
+/****************************************************/
+
+.long-copy{
+    line-height:145%;
+/*    width 70%;*/
+    margin-left:15%;
+    margin-right:15%;
+}
+
+
+.box p{
+    font-size:90%;
+    line-height: 145%;
+}
+
+/****************************************************/
+/*  ICONS  */
+/****************************************************/
+
+
+.features-ion-icon {
+  font-size: 250%;
+    margin-bottom:10px;
+    color:#e67e22;
+}
+
+.icon-small{
+    color:#e67e22;
+/*    doin so as below enables to assign width and height to the element*/
+    display:inline-block;
+    text-align: center;
+    width:30px;
+    font-size:120%;
+    
+    /*secrets to align text and icons*/
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+
+/****************************************************/
+/*  LINK BUTTON  */
+/****************************************************/
+
+.btn{
+    /*
+    diff bw inline and inline-block
+    inline-block respects top and bottom margin/padding
+    block takes up the entire width of the parent
+    */
+    display:inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+    border-radius: 200px;
+}
+
+.btn-full{
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    margin-right: 20px;
+    color:white!important;
+}
+
+.btn-ghost{
+/*    get color from flatuicolors.com*/
+    color: #e67e22;
+    border: 1px solid #e67e22;
+}
+
+.btn:hover,
+.btn:active{
+/*    get mtaching color from 0to255.com*/
+    background-color: #cf6d17;    
+    border: 1px solid #cf6d17;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    color: white;
+}
+
+
+
+/****************************************************/
+/*  MEALS  */
+/****************************************************/
+.section-meals{
+    padding:0;
+}
+.meals-showcase {
+    list-style: none;
+    width:100%;
+}
+
+.meals-showcase li{
+    display: inline-block;
+    float:left;
+    width:25%;
+    overflow:hidden;
+/*    setting the background color to black for the image to look darker*/
+    background-color: black;
+}
+
+.meals-showcase li img{
+    width:100%;
+    transform:scale(1.15);
+    opacity: 75%;
+}
+
+.meals-showcase li img:hover{
+    transform:scale(1.03);
+    opacity: 100%;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+
+/****************************************************/
+/*  HOW IT WOORKS  */
+/****************************************************/
+
+.section-steps{   
+    background-color: #f0f0f0; 
+}
+
+.steps-box:first-child{    
+    padding-right:3%;
+    margin-top:30px;
+}
+
+.steps-box:last-child{
+    padding-left:3%;
+    margin-top:70px;
+}
+
+.app-screen{
+    width:40%;
+    float:right;
+}
+
+.works-step{
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type{
+    margin-bottom: 80px;
+}
+
+.works-step div{
+    border:2px solid #e67e22;
+    border-radius: 50%;
+    display:inline-block;
+    height:50px;
+    width:50px;
+    text-align: center;
+    padding:2%;
+    float: left;
+    margin-right:24px;
+}
+
+.btn-app:link,
+.btn-app:visited{
+    border:0;
+}
+
+.btn-app img{
+    height:50px;
+    width:auto;
+    margin-right: 10px;
+}
+
+
+
+/****************************************************/
+/*  CITIES  */
+/****************************************************/
+
+.city-img{
+    width:100%;
+    margin-bottom:15px;
+}
+
+.city-feature{
+    margin-bottom:5px;
+}
+
+
+/****************************************************/
+/*  CUTSOMER TESTIMONIALS  */
+/****************************************************/
+
+.section-testimonials{
+    background-image: linear-gradient(rgba(0,0,0, 0.83),rgba(0,0,0, 0.83)), url(../img/back-customers.jpg);
+    color:white;
+/*    fits whole width of browser*/
+    background-size:cover;
+/*    fixes the image in one place while it scrolls*/
+    background-attachment: fixed;
+}
+
+blockquote{
+    padding:2%;
+    font-style:italic;
+    line-height:145%;
+    margin-top:30px;
+}
+
+blockquote:before{
+    content:"\201C";
+    font-size: 500%;
+}
+
+cite{
+    font-size:90%;
+    margin-top:25px;
+/*    makes it a separate line*/
+    display:block;
+    
+}
+
+cite img{
+    border-radius:50%;
+    margin-right:10px;
+    height:40px;
+    vertical-align: middle;
+}
+
+
+
+/****************************************************/
+/*  CITIES  */
+/****************************************************/
+
+
+.section-plans{
+    background-color: #f4f4f4;    
+}
+
+.plan-box{
+    background-color: white;
+/*    box-shadow is not working*/
+/*    box-shadow: 10px,10px,5px,#938383;*/
+/*    to center within section-plans*/
+    width: 90%;
+}
+
+.plan-box div{
+    padding: 15px;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.plan-box div:first-child{
+    background-color: #fcfcfc;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+}
+
+.plan-box div:last-child{
+    text-align: center;
+}
+
+.plan-price{
+    font-size:300%;
+    margin-bottom:10px;
+    font-weight: 100;
+    color:#e67e22;
+}
+
+.plan-price span{
+    font-size:30%;
+    font-weight: 300;
+}
+
+.plan-price-meal{
+    font-size:80%;
+}
+
+.plan-box div ul{
+    list-style: none;    
+}
+
+.plan-box div ul li{
+   padding: 5px 0 ;   
+}
+
+
+/*
+.plan-box div a{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+*/
+
+
+/****************************************************/
+/*  FORM  */
+/****************************************************/
+
+
+.contact-form{
+    width:60%;
+    margin:0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea{
+    width:100%;
+    padding: 7px;
+    border-radius:2px;
+    border: 1px solid #ccc;
+}
+
+input[type=checkbox]{
+    margin:10px, 5px, 10px, 0;
+}
+
+*:focus{
+    outline:none;
+}
+
+/****************************************************/
+/*  FOOTER  */
+/****************************************************/
+footer{
+    background-color: rgb(47, 46, 45);
+    color:white;
+/*    height:200px;*/
+}
+
+footer ul{
+    list-style: none;
+    margin-top:40px;
+}
+
+
+.copyright-link:first-child ul{
+    float:left;
+    font-size: 80%;
+    display:inline-block
+}
+
+.copyright-link:last-child ul{
+    float:right;
+}
+
+
+footer ul li{
+    float:left;
+    margin:0 10px;
+}
+
+footer ul li a:link,
+footer ul li a:visited{
+    border: none;
+    font-size: 110%
+}
+
+footer .row:last-child{
+    text-align: center;
+    margin-top:10px;
+    padding-bottom:40px;
+    font-size: 80%;
+}
+
+#logo-facebook,
+#logo-twitter,
+#logo-googleplus,
+#logo-instagram{
+    transition :color 0.5s;
+}
+
+#logo-facebook:hover{
+    color:#3b5998;
+}
+
+#logo-twitter:hover{
+    color:#00aced;
+}
+#logo-googleplus:hover{
+    color:#dd4b39;
+}
+#logo-instagram:hover{
+    color:#517fa4;
+}
